@@ -24,7 +24,6 @@ public class JsxViewResolver implements ViewResolver {
     private JReact renderer;
     private MessageFormat format;
     String prefix = "/dist";
-    String suffix = ".renderer.js";
 
 
     //
@@ -41,9 +40,12 @@ public class JsxViewResolver implements ViewResolver {
             engine.eval("var window = window || {};\n" +
                     "window.app = {};\n" +
                     "window.app.model = {};" +
+                            "window.app.model.data = {};" +
+                            "window.app.model.state = {};" +
                     "if (typeof console == \"undefined\") {\n" +
                     "    console = {\n" +
-                    "        log: function (arg) {println(arg)}\n" +
+                    "        log: function (arg) {println(arg)},\n" +
+                    "        error: function (arg) {println(arg)}\n" +
                     "    };\n" +
                     "}"
                     );
@@ -59,6 +61,6 @@ public class JsxViewResolver implements ViewResolver {
 
     @Override
     public View resolveViewName(String viewName, Locale locale) throws Exception {
-       return new JsxView(engine,prefix+"/"+viewName+suffix,format);
+       return new JsxView(engine,viewName,format);
     }
 }

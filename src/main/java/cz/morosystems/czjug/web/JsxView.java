@@ -21,6 +21,9 @@ public class JsxView extends AbstractView {
     private String viewName;
     private MessageFormat indexTemplate;
 
+    String prefix = "/dist";
+    String suffix = ".renderer.js";
+
     public JsxView(ScriptEngine engine, String viewName, MessageFormat indexTemplate) {
         this.engine = engine;
         this.viewName = viewName;
@@ -30,8 +33,9 @@ public class JsxView extends AbstractView {
     @Override
     protected void renderMergedOutputModel(Map<String, Object> model, HttpServletRequest request,
                                            HttpServletResponse response) throws Exception {
-        ClassPathResource view = new ClassPathResource(viewName);
-        String content = (String) engine.eval(new InputStreamReader(view.getInputStream()));
-        IOUtils.write(indexTemplate.format(new String[]{content}), response.getOutputStream());
+        ClassPathResource view = new ClassPathResource(prefix+"/"+viewName+suffix);
+        Object result = engine.eval(new InputStreamReader(view.getInputStream()));
+        String content = (String)engine.eval("window."+viewName+"Content");
+        IOUtils.write(indexTemplate.format(new String[]{viewName,content}), response.getOutputStream());
     }
 }

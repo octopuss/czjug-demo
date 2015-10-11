@@ -69,16 +69,16 @@ var Table = React.createClass({
 
         var tableData = this.props.data;
         var tableRows = [];
-
-        for (var i = 0; i < tableData.length; i++) {
-            tableRows.push(<TableRow columnNames={Object.keys(this.props.headers)} rowId={this.props.rowIdProperty} data={tableData[i]} actions={this.props.actions}/>);
+        if(tableData!==undefined) {
+            for (var i = 0; i < tableData.length; i++) {
+                tableRows.push(<TableRow columnNames={Object.keys(this.props.headers)} rowId={this.props.rowIdProperty} data={tableData[i]} actions={this.props.actions}/>);
+            }
         }
-
         var tableHeader = <TableHeader columns={this.props.headers} actions={this.props.actions !== undefined}/>;
 
         return (<BTable stripped bordered hover id={this.props.id}>
         {tableHeader}
-        {tableRows}
+        {tableData!==undefined ? tableRows : ''}
         </BTable>);
     }
 });
