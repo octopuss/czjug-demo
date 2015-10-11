@@ -45,10 +45,13 @@ public class JsxViewResolver implements ViewResolver {
                     "    console = {\n" +
                     "        log: function (arg) {println(arg)}\n" +
                     "    };\n" +
-                    "}");
-            engine.eval("println(window);");
+                    "}"
+                    );
 
             engine.eval(new InputStreamReader(commons.getInputStream()));
+            engine.eval("if (typeof webpackJsonp == \"undefined\") {\n" +
+                    "       webpackJsonp = window['webpackJsonp'];\n" +
+                    "}");
         } catch (ScriptException e) {
             e.printStackTrace();
         }
