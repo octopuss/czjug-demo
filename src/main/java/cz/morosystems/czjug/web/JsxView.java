@@ -24,7 +24,7 @@ public class JsxView extends AbstractView {
     private static final String  PREFIX = "/dist";
     private static final String SUFFIX = ".js";
     private static final String MODEL_VIEW = "model";
-    private static final String MODEL_HELPER = "window.app = window.app === undefined ?{}: window.app; window.app.model = {0};";
+    private static final String MODEL_HELPER = "window.app = window.app === undefined ?{}: window.app; window.app.model = %s;";
 
 
     public JsxView(ScriptEngine engine, String viewName, MessageFormat indexTemplate) {
