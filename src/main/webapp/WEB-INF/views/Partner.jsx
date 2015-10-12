@@ -10,6 +10,8 @@ var AppStore = require('../store/ApplicationStore');
 require("../css/components/Index/tooltip.css");
 
 var React = require('react');
+var ReactDOM = require('react-dom');
+var ReactDOMServer = require('react-dom/server');
 
 
 var Partner = React.createClass({
@@ -33,4 +35,8 @@ var Partner = React.createClass({
     }
 });
 
-React.render(<Partner/>, document.getElementById('app'));
+// Just workaround for server rendering
+window.partnerContent = ReactDOMServer.renderToString(React.createElement(Partner, null));
+if(typeof document !== "undefined") {
+    ReactDOM.render(<Partner/>, document.getElementById('app'));
+}

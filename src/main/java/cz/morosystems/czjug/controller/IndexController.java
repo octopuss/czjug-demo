@@ -17,6 +17,7 @@ public class IndexController {
 
     private static final String LIST_VIEW = "list";
     private static final String MODEL_VIEW = "model";
+    private static final String PARTNER_VIEW = "partner";
 
     @Autowired
     private PartnerService partnerService;
@@ -30,7 +31,7 @@ public class IndexController {
         mav.addObject("title", "New partner");
         mav.addObject("viewName", "partner");
         mav.addObject("modelUrl", "model?id=");
-        mav.setViewName(LIST_VIEW);
+        mav.setViewName(PARTNER_VIEW);
         return mav;
     }
 

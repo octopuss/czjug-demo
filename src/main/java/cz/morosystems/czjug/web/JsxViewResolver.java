@@ -4,7 +4,7 @@ import de.matrixweb.jreact.JReact;
 import org.apache.commons.io.IOUtils;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.servlet.View;
-import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.view.AbstractCachingViewResolver;
 
 import javax.annotation.PostConstruct;
 import javax.script.ScriptEngine;
@@ -13,18 +13,18 @@ import javax.script.ScriptException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.MessageFormat;
-import java.util.Collections;
 import java.util.Locale;
 
 /**
  * Created by ivan.dolezal.ext on 11.10.2015.
  */
-public class JsxViewResolver implements ViewResolver {
+public class JsxViewResolver extends AbstractCachingViewResolver {
 
     private JReact renderer;
     private MessageFormat format;
-    String prefix = "/dist";
-
+    private static final  String COMMON_JS_PATH = "/dist/commons.js";
+    public static final String REDIRECT_URL_PREFIX = "redirect:/";
+    public static final String FORWARD_URL_PREFIX = "forward:/";
 
     //
     ScriptEngine engine = new ScriptEngineManager().getEngineByMimeType("application/javascript");
@@ -33,7 +33,7 @@ public class JsxViewResolver implements ViewResolver {
 
     @PostConstruct
     public void init() throws IOException{
-        ClassPathResource commons = new ClassPathResource(prefix+"/commons.js");
+        ClassPathResource commons = new ClassPathResource(COMMON_JS_PATH);
         ClassPathResource res = new ClassPathResource(indexFile);
         format = new MessageFormat(IOUtils.toString(res.getInputStream()));
         try {
@@ -59,8 +59,18 @@ public class JsxViewResolver implements ViewResolver {
         }
     }
 
-    @Override
-    public View resolveViewName(String viewName, Locale locale) throws Exception {
-       return new JsxView(engine,viewName,format);
+
+
+    @Override protected View loadView(String viewName, Locale locale) throws Exception {
+        String internalViewName = viewName;
+        if(viewName.startsWith(REDIRECT_URL_PREFIX)) {
+            internalViewName = viewName.substring(REDIRECT_URL_PREFIX.length());
+        }
+        if(viewName.startsWith(FORWARD_URL_PREFIX)) {
+            internalViewName = viewName.substring(FORWARD_URL_PREFIX.length());
+
+        }
+
+        return new JsxView(engine,internalViewName,format);
     }
 }

@@ -19,7 +19,7 @@ var Layout = React.createClass({
             }
         };
     },
-    componentDidMount: function () {
+    componentWillMount: function () {
         AppDispatcher.handleViewAction({
                 actionType: 'init',
                 url: this.state.url

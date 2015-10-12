@@ -4,7 +4,8 @@ var Table = require("../components/Table.jsx");
 var AppStore = require('../store/ApplicationStore');
 var Button = require("react-bootstrap/Button");
 var React = require('react');
-
+var ReactDOM = require('react-dom');
+var ReactDOMServer = require('react-dom/server');
 
 var List = React.createClass({
 
@@ -29,4 +30,7 @@ var List = React.createClass({
         );
     }
 });
-module.exports=List;
+window.listContent = ReactDOMServer.renderToString(React.createElement(List, null));
+if(typeof document !== "undefined") {
+ReactDOM.render(<List/>, document.getElementById('app'));
+}
