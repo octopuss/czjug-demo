@@ -10,6 +10,17 @@ require('script!./lib/js/head.min.js');
 require('script!./lib/js/classList.js');
 require('script!./lib/js/reveal.js');
 
+
+
+    require('script!./plugin/zoom-js/zoom.js');
+if(!!document.querySelector( '[data-markdown]' )) {
+    require('script!./plugin/markdown/marked.js');
+    require('script!./plugin/markdown/markdown.js');
+}
+
+require('script!./plugin/highlight/highlight.js');
+window.hljs.initHighlightingOnLoad();
+
 window.Reveal.initialize({
     controls: true,
     progress: true,
@@ -17,12 +28,4 @@ window.Reveal.initialize({
     center: false,
     theme: window.Reveal.getQueryHash().theme, // available themes are in /css/theme
     transition: 'linear' // default/cube/page/concave/zoom/linear/fade/none
-});
-
-require.ensure([], function() {
-    //require('script!./plugin/highlight/highlight.js');
-    //window.hljs.initHighlightingOnLoad();
-    require('script!./plugin/zoom-js/zoom.js');
-    require('script!./plugin/markdown/marked.js');
-    require('script!./plugin/markdown/markdown.js');
 });
