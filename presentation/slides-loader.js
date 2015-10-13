@@ -3,7 +3,7 @@
  */
 "use strict";
 require('./css/reveal.css');
-require('./css/white.css');
+require('./css/czjug.css');
 require('./lib/css/zenburn.css');
 
 require('script!./lib/js/head.min.js');
