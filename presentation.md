@@ -9,7 +9,7 @@
 -   Pitfalls of web development
 -   Webpack
 -   Pitfalls of web development no.2
--   React.js
+-   React.js + Flux
 -   Spring + Webpack + React
 -   JsxViewResolver
 
@@ -124,7 +124,7 @@ module.exports = {
 
 ##Pitfalls of web layer development no.2
 -   Direct DOM manipulation
--   GUI elements cross dependencies 
+-   GUI elements cross dependencies
 -   missing data layer for GUI
 -   overuse of plugins (JQuery)
 
@@ -149,14 +149,16 @@ $.post('/login', credentials, function( user ) {
 ###Missing single source of truth
 -   multiple places for displaying same data
 -   displayed data dependent on complex conditions
+-   two way databinding / watchers
 ![Hide and seek](http://i.imgur.com/h3ETWQN.jpg)
----
+
+--
 
 ###Overuse of plugins
 ![Field dependencies](img/ac-plugins.png)
 
 
---
+---
 
 ##React.js
 -   It is only a view layer
@@ -172,12 +174,12 @@ $.post('/login', credentials, function( user ) {
 -   data layer
 -   hint how to implement the above
 
+--
+
 ###Component example
 ```javascript
 var Header = React.createClass({
-  getInitialState: function() {
-      return {name: null};
-   },
+  ...
   render: function() {
     return <header>
             { this.state.name ?
@@ -185,4 +187,19 @@ var Header = React.createClass({
                 <span>Not Logged In</span> }
         </header>;
   }
+  ...
 });
+```
+
+---
+
+##Flux
+-   more of a pattern than a framework
+-   unidirectional data flow
+-   the dispatcher, the stores, and the views
+-   similar to pub-sub architecture
+
+--
+
+##Flux
+![Flux](https://facebook.github.io/flux/img/flux-simple-f8-diagram-explained-1300w.png)
