@@ -16,7 +16,7 @@ module.exports = {
     module: {
         loaders: [
            { test: /\.css$/, loader: "style!css"},
-            {test: /\.((svg)|(woff)|(woff)|(ttf)|(eot))$/, loader: 'file-loader', query: {name: '[name]\.[ext]'}} // extracts fonts from css files and adds them to distribution folder
+            {test: /\.((svg)|(woff)|(woff)|(ttf)|(eot)|(jpg))$/, loader: 'file-loader', query: {name: '[name]\.[ext]'}} // extracts fonts from css files and adds them to distribution folder
         ]
     },
     plugins: plugins

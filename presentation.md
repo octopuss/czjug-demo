@@ -1,3 +1,5 @@
+<!-- .slide: data-background="#fff" -->
+![logo](img/czjug.jpg)
 #CZJUG
 ##Hradec Králové
 21.10.2015
@@ -93,6 +95,9 @@
 --
 
 #webpack.config.js
+```sh
+npm i webpack -g
+```
 ```javascript
 var webpack = require('webpack');
 module.exports = {
@@ -201,5 +206,49 @@ var Header = React.createClass({
 
 --
 
-##Flux
+###Flux
 ![Flux](https://facebook.github.io/flux/img/flux-simple-f8-diagram-explained-1300w.png)
+
+---
+
+##Spring + Webpack + React Example
+-   Spring for backend
+-   Webpack for resource management
+-   React + Flux for view layer
+
+--
+
+###Spring boot application
+-   MVC, JPA, data starters, Jetty, Hsql
+-   InternalResourceViewResolver + Jstl
+-   Crud Operations on "Partner" entity
+-   assembled by Maven
+
+--
+
+##Webpack
+-   Commons (*CSS and js*), Uglify(*in production*), ExtractText plugins
+-   Entrypoint generated for each view
+-   run manually or using maven profile
+-   CSS for each module
+
+--
+
+##View Layer
+-   React components (*react-bootstrap*) + custom made
+-   Validation functions and binding in separate files
+-   localStorage, promise, Jquery (just for Ajax <span style="font-family:FontAwesome">&#xf118;</span>)
+
+
+---
+
+##JsxViewResolver
+-   render React components using Java
+-   Noexistent window,console...
+-   just POC for Java 7, so why?
+
+---
+
+#Questions?
+![I Robot](http://s2.quickmeme.com/img/c0/c05d29c5606217bc394a2f79dd229434dafe0d299985130697b78f38e98c56c2.jpg)
+
