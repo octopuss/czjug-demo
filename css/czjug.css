@@ -20,7 +20,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
  *********************************************/
 body {
   /*background: radial-gradient(at right 40%, rgba(230,230,230,1) 0%,rgba(255,255,255,0) 30%);*/
-  background:url('../img/czjug.jpg') no-repeat bottom center;
+  background:url('../img/czjug.jpg') no-repeat bottom center, radial-gradient(at right 40%, rgba(230,230,230,1) 0%,rgba(255,255,255,0) 30%);
   background-size:   contain;
   text-align:left;
  }
