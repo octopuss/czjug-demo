@@ -15,12 +15,18 @@
 -   Spring + Webpack + React
 -   JsxViewResolver
 
+Note:
+Introduce yourself :)
+
 ---
 
-##Spring boot MVC
+##Spring Boot MVC
 -   Takes an opinionated view of building production-ready Spring applications.
 -   Quick application kick-off using [Starters](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-starters)
 -   Easy configuration via [properties file](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html)
+
+Note:
+describe spring boot and show on what it is dependent, list through starters and pick the most used
 
 --
 
@@ -39,6 +45,8 @@
 </dependencies>
 ```
 
+Note: main class should be added to properties
+InteliJ Idea has support for Spring boot projects
 --
 
 ### Create simple java class
@@ -64,17 +72,27 @@
         }
     }
 ```
+Note: show application in prepared project
+https://github.com/octopuss/czjug-demo/blob/master/src/main/java/cz/morosystems/czjug/Application.java
+if possible say why is it in base package :)
 
 ---
 
 ##Pitfalls of web development
 -   Code duplicities and unused code (css)
--   tons of request to the server
+-   Tons of request to the server
+
+Note:on next slide duplicity - font awesome css
 
 --
 
-![Scripts](img/ac-head.jpg)
+![Scripts+unused](img/ac-head.jpg)
 
+--
+
+![Timeline](img/timeline.jpg)
+
+Note: 2.9 MB in scripts and styles , 55 requests
 --
 
 ![Scripts everywhere](http://zlml.cz/uploads/e80e305e-8431-4c0e-9c79-5db761c22608/199aff3.jpg)
@@ -89,9 +107,11 @@
 ##Webpack
 -   Node.js module bundlerer for web
 -   Other filetypes accessible using loaders
--   capable of multiple entry points
+-   Capable of multiple entry points
 -   Sync and Async loading "code-splitting"
+-   extensible using plugins
 
+Note: Other options are Browserify (compare table https://webpack.github.io/docs/comparison.html)
 --
 
 #webpack.config.js
@@ -117,6 +137,8 @@ module.exports = {
 
 ```
 
+Note: plugins will be shown in demo application
+
 --
 
 ###Output
@@ -124,6 +146,8 @@ module.exports = {
 <script src="build/slides-loader.js" charset="UTF-8"></ script>
 ```        
 ![Excelent](http://aintnogod.com/ipb/uploads/gallery/album_17/gallery_298_17_1836.gif)
+
+Note: one script that loads e.g. css asynchronously by adding resource link tag into head
 
 ---
 
@@ -143,11 +167,13 @@ $.post('/login', credentials, function( user ) {
     ...
 });
 ```
+Note: dom can be manipulated easily by anyone from everywhere
 
 --
 
 ###GUI elements cross dependencies 
 ![Field dependencies](img/fld_dependencies.png)
+Note: even simple application form can have multiple dependencies between fields. Fields usually need to know the reference to each other
 
 --
 
@@ -162,13 +188,14 @@ $.post('/login', credentials, function( user ) {
 ###Overuse of plugins
 ![Field dependencies](img/ac-plugins.png)
 
+Note: for each "fancy" functionality you have plugin, script and css - added functionality is in separate file not clearly bind to its usage.
 
 ---
 
 ##React.js
 -   It is only a view layer
 -   gives you a template language and some function hooks to essentially render HTML
--   you can always tell how your component/GUI will be rendered by looking at one file
+-   you can always tell how your component/GUI will be rendered by **looking at one file**
 -   you cannot build a fully functional dynamic application with [React](http://facebook.github.io/react/) alone
 
 --
@@ -178,6 +205,8 @@ $.post('/login', credentials, function( user ) {
 -   Ajax and callback handling (no Promises)
 -   data layer
 -   hint how to implement the above
+
+Note: you can use any other frameworks, libraries if you want
 
 --
 
@@ -195,6 +224,8 @@ var Header = React.createClass({
   ...
 });
 ```
+Note: more complex component will be shown in application
+https://github.com/octopuss/czjug-demo/blob/master/src/main/webapp/WEB-INF/components/Table.jsx
 
 ---
 
