@@ -112,6 +112,7 @@ Note: 2.9 MB in scripts and styles , 55 requests
 -   extensible using plugins
 
 Note: Other options are Browserify (compare table https://webpack.github.io/docs/comparison.html)
+
 --
 
 #webpack.config.js
@@ -235,6 +236,8 @@ https://github.com/octopuss/czjug-demo/blob/master/src/main/webapp/WEB-INF/compo
 -   the dispatcher, the stores, and the views
 -   similar to pub-sub architecture
 
+Note: different from p-s cause it promotes unidirectional data flow - in through actions , out through events/listeners
+- view is not allowed to modify state directly
 --
 
 ###Flux
@@ -277,6 +280,8 @@ https://github.com/octopuss/czjug-demo/blob/master/src/main/webapp/WEB-INF/compo
 -   render React components using Java
 -   Noexistent window,console...
 -   just POC for Java 7, so why?
+
+Note: just to show that Java is able to interact with JS
 
 ---
 
