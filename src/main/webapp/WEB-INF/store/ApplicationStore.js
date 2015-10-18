@@ -13,7 +13,7 @@ var LS = require('localStorage');
 var LS_KEY = 'PARTNER_MODEL';
 
 var ApplicationStore = assign({}, EventEmitter.prototype, {
-    init: function () {
+    init: function () { //TODO [4]
         var lsModel = JSON.parse(LS.getItem(LS_KEY));
         if (lsModel !== null) {
             model.data = assign(model.data, lsModel.data);
@@ -34,7 +34,7 @@ var ApplicationStore = assign({}, EventEmitter.prototype, {
         }
         console.log("Emitting " + event + " data - " + data);
     },
-    addListener: function (eventType, callback) {
+    addListener: function (eventType, callback) { //TODO [3]
         this.on(eventType, callback);
     },
     removeListener: function (eventType, callback) {
@@ -73,7 +73,7 @@ var ApplicationStore = assign({}, EventEmitter.prototype, {
     getElementValue: function (elementId) {
         return model.data[elementId];
     },
-    validate: function (elementId, functionArray) {
+    validate: function (elementId, functionArray) { //TODO [2]
         console.log("in validate");
         if (functionArray === undefined) {
             return;
@@ -129,7 +129,7 @@ var ApplicationStore = assign({}, EventEmitter.prototype, {
         }
 
     },
-    dispatcherIndex: AppDispatcher.register(function (payload) {
+    dispatcherIndex: AppDispatcher.register(function (payload) { //TODO [1]
         var action = payload.action;
         console.log("Performed action-->");
         console.log(action);

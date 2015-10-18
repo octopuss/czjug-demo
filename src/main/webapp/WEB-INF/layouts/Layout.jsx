@@ -9,7 +9,7 @@ var AppDispatcher = require('../lib/AppDispatcher');
 require("../css/components/Layout/panel.css");
 require("../css/components/Layout/normalize.css");
 
-var Layout = React.createClass({
+var Layout = React.createClass({ //TODO [5]
 
     getInitialState: function () {
         return {
@@ -19,7 +19,7 @@ var Layout = React.createClass({
             }
         };
     },
-    componentWillMount: function () {
+    componentDidMount: function () {
         AppDispatcher.handleViewAction({
                 actionType: 'init',
                 url: this.state.url

@@ -16,18 +16,6 @@
     <properties>
         <start-class>cz.morosystems.czjug.Application</start-class>
     </properties>
-    <repositories>
-        <repository>
-            <id>mvnrepository</id>
-            <name>mvnrepository</name>
-            <url>http://www.mvnrepository.com</url>
-        </repository>
-        <repository>
-            <id>central</id>
-            <name>central</name>
-            <url>http://repo1.maven.org/maven2/</url>
-        </repository>
-    </repositories>
 
     <dependencies>
         <!-- tag::jetty[] -->
@@ -62,11 +50,6 @@
             <scope>runtime</scope>
         </dependency>
         <!-- end::actuator[] -->
-        <dependency>
-            <groupId>de.matrixweb</groupId>
-            <artifactId>jreact</artifactId>
-            <version>0.0.3</version>
-        </dependency>
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>

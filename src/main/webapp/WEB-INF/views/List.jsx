@@ -4,8 +4,7 @@ var Table = require("../components/Table.jsx");
 var AppStore = require('../store/ApplicationStore');
 var Button = require("react-bootstrap/Button");
 var React = require('react');
-var ReactDOM = require('react-dom');
-var ReactDOMServer = require('react-dom/server');
+
 
 var List = React.createClass({
 
@@ -16,7 +15,7 @@ var List = React.createClass({
         this.setState({partnersListData: AppStore.getElementValue("partnerList")});
     },
 
-    render: function () {
+    render: function () { //TODO [12]
 
         var tableHeaders = {
             name: 'Name', birthNr: "Birth number"
@@ -30,7 +29,12 @@ var List = React.createClass({
         );
     }
 });
-window.listContent = ReactDOMServer.renderToString(React.createElement(List, null));
-if(typeof document !== "undefined") {
-ReactDOM.render(<List/>, document.getElementById('app'));
+
+// Just workaround for server rendering
+if (typeof document !== "undefined") {
+    var ReactDOM = require('react-dom');
+    ReactDOM.render(<List/>, document.getElementById('app'));
+} else {
+    var ReactDOMServer = require('react-dom/server');
+    window.listContent = ReactDOMServer.renderToString(React.createElement(List, null));
 }

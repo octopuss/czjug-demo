@@ -1,6 +1,5 @@
 package cz.morosystems.czjug.web;
 
-import de.matrixweb.jreact.JReact;
 import org.apache.commons.io.IOUtils;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.servlet.View;
@@ -21,7 +20,6 @@ import java.util.Locale;
  */
 public class JsxViewResolver extends AbstractCachingViewResolver {
 
-    private JReact renderer;
     private MessageFormat format;
     private static final  String COMMON_JS_PATH = "/dist/commons.js";
     private static final  String SERVER_HELPER_JS_PATH = "/WEB-INF/lib/ServerHelper.js";

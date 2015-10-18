@@ -21,7 +21,7 @@ var Input = React.createClass({
             };
         },
 
-        componentWillMount: function () {
+        componentWillMount: function () { //TODO [8]
             AppStore.addElementSafelyToModel(this.props.id);
             var vals = AppStore.setupValidation(this.props.id);
             if (vals !== undefined && vals.length > 0) {
@@ -33,10 +33,10 @@ var Input = React.createClass({
 
 
         },
-        componentDidMount: function () {
+        componentDidMount: function () { //TODO [6]
             AppStore.addListener('init', this.init);
         },
-        init: function () {
+        init: function () { //TODO [7]
             this.setState({value: AppStore.getElementValue(this.props.id)});
         },
         changeValid: function () {
@@ -56,7 +56,7 @@ var Input = React.createClass({
             });
         },
 
-        handleChange: function () {
+        handleChange: function () { //TODO [9]
 
             // This could also be done using ReactLink:
             // http://facebook.github.io/react/docs/two-way-binding-helpers.html
@@ -69,7 +69,7 @@ var Input = React.createClass({
 
         },
 
-        render: function () {
+        render: function () { //TODO [10]
             if (this.state.editable) {
                 return (
                     <BInput

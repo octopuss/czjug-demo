@@ -7,7 +7,7 @@ require("../css/components/Table/table.css");
 
 var TableRow = React.createClass({
     // columns, data
-    propTypes: {
+    propTypes: { //TODO [13]
         columnNames: React.PropTypes.array.isRequired,
         data: React.PropTypes.object.isRequired,
         actions: React.PropTypes.array,
@@ -43,7 +43,7 @@ var TableRow = React.createClass({
 
 var TableHeader = React.createClass({
 
-    render: function () {
+    render: function () { //TODO [14]
         var headers = this.props.columns;
         var keys = Object.keys(this.props.columns);
         var ths = [];
@@ -65,7 +65,7 @@ var Table = React.createClass({
         rowIdProperty: React.PropTypes.string.isRequired
     },
 
-    render: function () {
+    render: function () { //TODO [15]
 
         var tableData = this.props.data;
         var tableRows = [];

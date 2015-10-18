@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 'use strict';
 var Btn = require("../components/Button.jsx");
-var GefInput = require("../components/Input.jsx");
+var Input = require("../components/Input.jsx");
 var Datetime = require("../components/Datetimeselector.jsx");
 var Layout = require("../layouts/Layout.jsx");
 var OverlayTrigger = require("react-bootstrap/OverlayTrigger");
@@ -10,19 +10,18 @@ var AppStore = require('../store/ApplicationStore');
 require("../css/components/Index/tooltip.css");
 
 var React = require('react');
-var ReactDOM = require('react-dom');
-var ReactDOMServer = require('react-dom/server');
+
 
 
 var Partner = React.createClass({
 
 
-    render: function () {
+    render: function () { //TODO [11]
         var tooltip = <Tooltip>When clicked data stored into localstorage.</Tooltip>;
         return (
             <Layout title="Partner detail">
-                <GefInput label="Name" id="name" />
-                <GefInput label="Birth nr." id="birthNr" />
+                <Input label="Name" id="name" />
+                <Input label="Birth nr." id="birthNr" />
                 <Datetime id="birthDate" label="Date"/>
                 <OverlayTrigger placement="top"  delayShow={300} delayHide={150} overlay={tooltip}>
 
@@ -36,7 +35,10 @@ var Partner = React.createClass({
 });
 
 // Just workaround for server rendering
-window.partnerContent = ReactDOMServer.renderToString(React.createElement(Partner, null));
 if(typeof document !== "undefined") {
+    var ReactDOM = require('react-dom');
     ReactDOM.render(<Partner/>, document.getElementById('app'));
+} else {
+    var ReactDOMServer = require('react-dom/server');
+    window.partnerContent = ReactDOMServer.renderToString(React.createElement(Partner, null));
 }
