@@ -47,6 +47,7 @@ describe spring boot and show on what it is dependent, list through starters and
 
 Note: main class should be added to properties
 InteliJ Idea has support for Spring boot projects
+
 --
 
 ### Create simple java class
@@ -93,6 +94,7 @@ Note:on next slide duplicity - font awesome css
 ![Timeline](img/timeline.jpg)
 
 Note: 2.9 MB in scripts and styles , 55 requests
+
 --
 
 ![Scripts everywhere](http://zlml.cz/uploads/e80e305e-8431-4c0e-9c79-5db761c22608/199aff3.jpg)
@@ -238,6 +240,7 @@ https://github.com/octopuss/czjug-demo/blob/master/src/main/webapp/WEB-INF/compo
 
 Note: different from p-s cause it promotes unidirectional data flow - in through actions , out through events/listeners
 - view is not allowed to modify state directly
+
 --
 
 ###Flux
