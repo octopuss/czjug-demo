@@ -95,10 +95,6 @@ Note:on next slide duplicity - font awesome css
 
 Note: 2.9 MB in scripts and styles , 55 requests
 
---
-
-![Scripts everywhere](http://zlml.cz/uploads/e80e305e-8431-4c0e-9c79-5db761c22608/199aff3.jpg)
-
 ---
 
 ##Webpack
@@ -276,6 +272,10 @@ Note: different from p-s cause it promotes unidirectional data flow - in through
 -   Validation functions and binding in separate files
 -   localStorage, promise, Jquery (just for Ajax <span style="font-family:FontAwesome">&#xf118;</span>)
 
+--
+
+###Application architecture
+![demo app](img/czjug-demo.svg)
 
 ---
 
