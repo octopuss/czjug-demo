@@ -291,5 +291,5 @@ Note: just to show that Java is able to interact with JS
 #Questions?
 ![I Robot](img/limited_responses.png)
 
-sources at [Github](https://github.com/octopuss/czjug-demo)
+sources at [https://github.com/octopuss/czjug-demo](https://github.com/octopuss/czjug-demo)
 
