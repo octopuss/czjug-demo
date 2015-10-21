@@ -289,5 +289,7 @@ Note: just to show that Java is able to interact with JS
 ---
 
 #Questions?
-![I Robot](http://s2.quickmeme.com/img/c0/c05d29c5606217bc394a2f79dd229434dafe0d299985130697b78f38e98c56c2.jpg)
+![I Robot](img/limited_responses.png)
+
+sources at [Github](https://github.com/octopuss/czjug-demo)
 
