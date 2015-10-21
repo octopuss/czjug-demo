@@ -4,6 +4,8 @@
 ##Hradec Králové
 21.10.2015
 
+[https://github.com/octopuss/czjug-demo](https://github.com/octopuss/czjug-demo)
+
 ---
 
 ## Outline
